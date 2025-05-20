@@ -77,9 +77,9 @@
                             <div class="p-4">
                                 <h3 class="text-lg font-semibold">Jasa Fotografi</h3>
                                 <p class="text-gray-600 text-sm">Prewed, pernikahan, DLL</p>
-                                <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                <a href="payment.php?service=Jasa%20Fotografi&price=Rp%20500.000%20-%202.000.000&category=Fotografi" class="mt-2 inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                                     Pesan Sekarang
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <!-- Card 2 -->
@@ -88,9 +88,9 @@
                             <div class="p-4">
                                 <h3 class="text-lg font-semibold">Jasa Graphic Design</h3>
                                 <p class="text-gray-600 text-sm">Membuat logo, poster, DLL</p>
-                                <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                <a href="payment.php?service=Jasa%20Graphic%20Design&price=Rp%20300.000%20-%201.500.000&category=Desain" class="mt-2 inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                                     Pesan Sekarang
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <!-- Card 3 -->
@@ -99,9 +99,9 @@
                             <div class="p-4">
                                 <h3 class="text-lg font-semibold">Jasa Pembuatan Website</h3>
                                 <p class="text-gray-600 text-sm">untuk bisnis atau portofolio pribadi</p>
-                                <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                <a href="payment.php?service=Jasa%20Pembuatan%20Website&price=Rp%202.000.000%20-%2010.000.000&category=Teknologi" class="mt-2 inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                                     Pesan Sekarang
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <!-- Card 4 -->
@@ -110,9 +110,9 @@
                             <div class="p-4">
                                 <h3 class="text-lg font-semibold">Jasa Kebersihan</h3>
                                 <p class="text-gray-600 text-sm">membersihkan rumah, kantor, DLL</p>
-                                <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                <a href="payment.php?service=Jasa%20Kebersihan&price=Rp%20200.000%20-%20500.000&category=Kebersihan" class="mt-2 inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                                     Pesan Sekarang
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <!-- Card 5 -->
@@ -129,6 +129,15 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <!-- Tombol See All -->
+                <div class="flex justify-center mt-6">
+                    <a href="catalog.php" class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300">
+                        Lihat Semua Layanan
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>

@@ -98,6 +98,12 @@
                                         <th class="py-2 px-4 border-b">
                                             Harga
                                         </th>
+                                        <th class="py-2 px-4 border-b">
+                                            Status
+                                        </th>
+                                        <th class="py-2 px-4 border-b">
+                                            Aksi
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -116,6 +122,14 @@
                                         </td>
                                         <td class="py-2 px-4 border-b">
                                             Rp100.000,00
+                                        </td>
+                                        <td class="py-2 px-4 border-b">
+                                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Selesai</span>
+                                        </td>
+                                        <td class="py-2 px-4 border-b">
+                                            <button onclick="openReviewModal('TRX001')" class="text-blue-600 hover:text-blue-800">
+                                                <i class="fas fa-star"></i> Beri Ulasan
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -170,6 +184,46 @@
         </div>
     </footer>
 
+    <!-- Modal Review -->
+    <div id="reviewModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <h3 class="text-lg font-medium leading-6 text-gray-900 mb-4">Beri Ulasan</h3>
+                <form id="reviewForm" class="space-y-4">
+                    <input type="hidden" id="transactionId" name="transactionId">
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Rating</label>
+                        <div class="flex space-x-2">
+                            <button type="button" onclick="setRating(1)" class="text-2xl text-gray-300 hover:text-yellow-400 rating-star">★</button>
+                            <button type="button" onclick="setRating(2)" class="text-2xl text-gray-300 hover:text-yellow-400 rating-star">★</button>
+                            <button type="button" onclick="setRating(3)" class="text-2xl text-gray-300 hover:text-yellow-400 rating-star">★</button>
+                            <button type="button" onclick="setRating(4)" class="text-2xl text-gray-300 hover:text-yellow-400 rating-star">★</button>
+                            <button type="button" onclick="setRating(5)" class="text-2xl text-gray-300 hover:text-yellow-400 rating-star">★</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Ulasan</label>
+                        <textarea id="reviewText" name="review" rows="4" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"></textarea>
+                    </div>
+
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" onclick="closeReviewModal()"
+                            class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">
+                            Batal
+                        </button>
+                        <button type="submit"
+                            class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                            Kirim Ulasan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script>
         function toggleDropdown(id) {
             var dropdown = document.getElementById(id);
@@ -179,6 +233,54 @@
                 dropdown.classList.add('hidden');
             }
         }
+
+        // Fungsi untuk membuka modal review
+        function openReviewModal(transactionId) {
+            document.getElementById('reviewModal').classList.remove('hidden');
+            document.getElementById('transactionId').value = transactionId;
+        }
+
+        // Fungsi untuk menutup modal review
+        function closeReviewModal() {
+            document.getElementById('reviewModal').classList.add('hidden');
+            resetRating();
+        }
+
+        // Fungsi untuk mengatur rating
+        function setRating(rating) {
+            const stars = document.querySelectorAll('.rating-star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('text-yellow-400');
+                    star.classList.remove('text-gray-300');
+                } else {
+                    star.classList.remove('text-yellow-400');
+                    star.classList.add('text-gray-300');
+                }
+            });
+        }
+
+        // Fungsi untuk mereset rating
+        function resetRating() {
+            const stars = document.querySelectorAll('.rating-star');
+            stars.forEach(star => {
+                star.classList.remove('text-yellow-400');
+                star.classList.add('text-gray-300');
+            });
+            document.getElementById('reviewText').value = '';
+        }
+
+        // Event listener untuk form review
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const transactionId = document.getElementById('transactionId').value;
+            const review = document.getElementById('reviewText').value;
+            const rating = document.querySelectorAll('.rating-star.text-yellow-400').length;
+
+            // Di sini Anda bisa menambahkan kode untuk mengirim data review ke server
+            alert('Terima kasih atas ulasan Anda!');
+            closeReviewModal();
+        });
     </script>
 </body>
 
